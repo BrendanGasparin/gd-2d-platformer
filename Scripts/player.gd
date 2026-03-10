@@ -1,8 +1,8 @@
 extends CharacterBody2D
 
 @export var move_speed : float = 100
-@export var acceleration : float = 50
-@export var braking : float = 20
+@export var acceleration : float = 5
+@export var braking : float = 10
 @export var gravity : float = 500
 @export var jump_force : float = 150
 
@@ -15,7 +15,11 @@ func _physics_process(delta: float) -> void:
 
 	# Negative axis move left, positive axis move right
 	move_input = Input.get_axis("move_left", "move_right")
-	velocity.x = move_input * move_speed
+	# If moving then accelerate, if not then brake
+	if move_input != 0:
+		velocity.x = lerp(velocity.x, move_input * move_speed, acceleration * delta)
+	else:
+		velocity.x = lerp(velocity.x, 0.0, braking * delta)
 	
 	# Jump
 	if Input.is_action_pressed("jump") and is_on_floor():
