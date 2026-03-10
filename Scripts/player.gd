@@ -4,7 +4,7 @@ extends CharacterBody2D
 @export var acceleration : float = 5
 @export var braking : float = 10
 @export var gravity : float = 500
-@export var jump_force : float = 150
+@export var jump_force : float = 220
 
 @onready var sprite : Sprite2D = $Sprite
 
