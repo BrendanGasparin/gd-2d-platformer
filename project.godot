@@ -11,6 +11,7 @@ config_version=5
 [application]
 
 config/name="Super Jump Dude"
+run/main_scene="uid://ch55mbp0wwygh"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -20,5 +21,6 @@ config/icon="res://icon.svg"
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 rendering_device/driver.windows="d3d12"
 environment/defaults/default_clear_color=Color(0.37352085, 0.5082746, 0.9567321, 1)
