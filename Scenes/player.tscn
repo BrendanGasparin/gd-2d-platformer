@@ -2,9 +2,81 @@
 
 [ext_resource type="Script" uid="uid://cn6cows8pqhur" path="res://Scripts/player.gd" id="1_cvnsp"]
 [ext_resource type="Texture2D" uid="uid://oydmunb7j23y" path="res://Sprites/Characters/player001_idle.png" id="2_cvnsp"]
+[ext_resource type="Texture2D" uid="uid://chet1g3jyulkh" path="res://Sprites/Characters/player100_running.png" id="3_6t5aa"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cvnsp"]
 size = Vector2(23.057426, 40.897236)
+
+[sub_resource type="Animation" id="Animation_vgqql"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_cvnsp")]
+}
+
+[sub_resource type="Animation" id="Animation_fkybt"]
+resource_name = "idle"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_cvnsp")]
+}
+
+[sub_resource type="Animation" id="Animation_x3wgy"]
+resource_name = "jump"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0006400986),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_6t5aa")]
+}
+
+[sub_resource type="Animation" id="Animation_3smsa"]
+resource_name = "move"
+length = 0.3
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.16666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("3_6t5aa"), ExtResource("2_cvnsp")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8erm5"]
+_data = {
+&"RESET": SubResource("Animation_vgqql"),
+&"idle": SubResource("Animation_fkybt"),
+&"jump": SubResource("Animation_x3wgy"),
+&"move": SubResource("Animation_3smsa")
+}
 
 [node name="Player" type="CharacterBody2D" unique_id=2135785123]
 script = ExtResource("1_cvnsp")
@@ -23,5 +95,6 @@ position = Vector2(0, -50)
 zoom = Vector2(5, 5)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1411069339]
+libraries/ = SubResource("AnimationLibrary_8erm5")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=355933186]
