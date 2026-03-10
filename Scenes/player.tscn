@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://c2gvlanlkx1h7"]
+
+[ext_resource type="Texture2D" uid="uid://bndhll1eg43cx" path="res://Sprites/Characters/Player001.png" id="1_v0iea"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_v0iea"]
+radius = 20.175243
+
+[node name="Player" type="CharacterBody2D" unique_id=2135785123]
+
+[node name="Player001" type="Sprite2D" parent="." unique_id=922101748]
+texture = ExtResource("1_v0iea")
+offset = Vector2(0, -8)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=852695757]
+position = Vector2(0, -8)
+scale = Vector2(0.34695986, -0.3912245)
+shape = SubResource("CircleShape2D_v0iea")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=734353865]
+position = Vector2(0, -50)
+zoom = Vector2(5, 5)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1411069339]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=355933186]
