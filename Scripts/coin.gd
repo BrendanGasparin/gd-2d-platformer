@@ -14,4 +14,13 @@ func _physics_process(delta):
 	# Rotate
 	sprite.scale.x = sin(time * rotate_speed)
 	
-	# Bob up and down
+	# TODO: Bob up and down
+	# Add one to sine wave and halve it to get it between 0 and 1 (instead of -1 and 1)
+	var y_pos = ((sin(time * bob_speed) + 1) / 2) * bob_height
+	global_position.y = start_pos.y - y_pos
+
+func _on_body_entered(body: Node2D) -> void:
+	if not body.is_in_group("Player"):
+		pass
+	body.increase_coins(1)
+	queue_free()
