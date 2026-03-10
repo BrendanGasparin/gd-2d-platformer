@@ -11,4 +11,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Basic README file
 - Basic CHANEGLOG
-- Godot project with a few art assets and no player controller
+- Starting area with a moving player

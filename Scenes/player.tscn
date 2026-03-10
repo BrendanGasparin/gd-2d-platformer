@@ -1,22 +1,22 @@
 [gd_scene format=3 uid="uid://c2gvlanlkx1h7"]
 
 [ext_resource type="Script" uid="uid://cn6cows8pqhur" path="res://Scripts/player.gd" id="1_cvnsp"]
-[ext_resource type="Texture2D" uid="uid://bndhll1eg43cx" path="res://Sprites/Characters/Player001.png" id="1_v0iea"]
+[ext_resource type="Texture2D" uid="uid://oydmunb7j23y" path="res://Sprites/Characters/player001_idle.png" id="2_cvnsp"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_v0iea"]
-radius = 20.175243
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cvnsp"]
+size = Vector2(23.057426, 40.897236)
 
 [node name="Player" type="CharacterBody2D" unique_id=2135785123]
 script = ExtResource("1_cvnsp")
 
-[node name="Player001" type="Sprite2D" parent="." unique_id=922101748]
-texture = ExtResource("1_v0iea")
+[node name="Sprite" type="Sprite2D" parent="." unique_id=922101748]
+texture = ExtResource("2_cvnsp")
 offset = Vector2(0, -8)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=852695757]
-position = Vector2(0, -8)
+position = Vector2(1.7881393e-07, -8)
 scale = Vector2(0.34695986, -0.3912245)
-shape = SubResource("CircleShape2D_v0iea")
+shape = SubResource("RectangleShape2D_cvnsp")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=734353865]
 position = Vector2(0, -50)

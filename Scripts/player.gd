@@ -6,6 +6,8 @@ extends CharacterBody2D
 @export var gravity : float = 500
 @export var jump_force : float = 150
 
+@onready var sprite : Sprite2D = $Sprite
+
 var move_input : float
 
 func _physics_process(delta: float) -> void:
@@ -20,10 +22,13 @@ func _physics_process(delta: float) -> void:
 		velocity.x = lerp(velocity.x, move_input * move_speed, acceleration * delta)
 	else:
 		velocity.x = lerp(velocity.x, 0.0, braking * delta)
-	
+
 	# Jump
 	if Input.is_action_pressed("jump") and is_on_floor():
 		velocity.y = -jump_force
 
 	# Moves and runs collision detection
 	move_and_slide()
+
+func _process(delta : float) -> void:
+	sprite.flip_h = velocity.x < 0
