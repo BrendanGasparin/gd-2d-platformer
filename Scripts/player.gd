@@ -33,7 +33,7 @@ func _physics_process(delta: float) -> void:
 	# Moves and runs collision detection
 	move_and_slide()
 
-func _process(delta : float) -> void:
+func _process(_delta : float) -> void:
 	sprite.flip_h = velocity.x < 0
 	_manage_animation()
 	
@@ -54,5 +54,5 @@ func game_over():
 	get_tree().change_scene_to_file("res://Scenes/Levels/W1L1.tscn")
 
 func increase_coins(amount : int):
-	# TODO: Increase score
-	print("Increase coins.")
+	Stats.score += amount
+	print(Stats.score)
