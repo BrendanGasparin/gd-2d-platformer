@@ -5,6 +5,8 @@
 [ext_resource type="Script" uid="uid://dro8ykif6plfm" path="res://Scripts/enemy_patroller.gd" id="3_1i56a"]
 [ext_resource type="Texture2D" uid="uid://p210dbndiutx" path="res://Sprites/Characters/goose001.png" id="3_l2iua"]
 [ext_resource type="Texture2D" uid="uid://ktckc5s8m4hy" path="res://Sprites/Characters/goose002.png" id="5_l8p44"]
+[ext_resource type="Script" uid="uid://cqc8jkm8dyh25" path="res://Scripts/coin.gd" id="6_bnf33"]
+[ext_resource type="Texture2D" uid="uid://mpw1w2yppenu" path="res://Sprites/Objects/coin.png" id="7_vbwyc"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1i56a"]
 radius = 7.0
@@ -47,6 +49,9 @@ _data = {
 &"walk": SubResource("Animation_bnf33")
 }
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_chgoe"]
+radius = 5.0
+
 [node name="Node2D" type="Node2D" unique_id=228350560]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=360509694]
@@ -70,5 +75,17 @@ shape = SubResource("CircleShape2D_1i56a")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Birb" unique_id=678475439]
 libraries/ = SubResource("AnimationLibrary_vbwyc")
+
+[node name="Coin" type="Area2D" parent="." unique_id=445772945]
+position = Vector2(72, -16)
+script = ExtResource("6_bnf33")
+
+[node name="Sprite" type="Sprite2D" parent="Coin" unique_id=1975770785]
+texture = ExtResource("7_vbwyc")
+offset = Vector2(0, -8)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Coin" unique_id=1738305759]
+position = Vector2(0, -8)
+shape = SubResource("CircleShape2D_chgoe")
 
 [connection signal="body_entered" from="Birb" to="Birb" method="_on_body_entered"]
