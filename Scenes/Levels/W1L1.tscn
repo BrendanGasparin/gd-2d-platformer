@@ -30,3 +30,5 @@ position = Vector2(0, -8)
 shape = SubResource("CircleShape2D_1i56a")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Birb" unique_id=678475439]
+
+[connection signal="body_entered" from="Birb" to="Birb" method="_on_body_entered"]
