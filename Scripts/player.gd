@@ -1,5 +1,8 @@
 extends CharacterBody2D
 
+signal OnUpdateHealth(health : int)
+signal OnUpdateCoins(coins : int)
+
 @export var move_speed : float = 100
 @export var acceleration : float = 5
 @export var braking : float = 10
@@ -47,6 +50,10 @@ func _manage_animation():
 
 func take_damage(amount : int):
 	health -= amount
+	
+	# Emit signal for player_ui.gd
+	OnUpdateHealth.emit(health)
+	
 	if health <= 0:
 		call_deferred("game_over")
 
@@ -55,4 +62,4 @@ func game_over():
 
 func increase_coins(amount : int):
 	Stats.score += amount
-	print(Stats.score)
+	OnUpdateCoins.emit(Stats.score)
