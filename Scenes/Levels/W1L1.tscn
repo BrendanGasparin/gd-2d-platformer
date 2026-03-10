@@ -2,6 +2,11 @@
 
 [ext_resource type="TileSet" uid="uid://cccbpoelww8px" path="res://Sprites/Tiles/Tileset001.tres" id="1_js2xp"]
 [ext_resource type="PackedScene" uid="uid://c2gvlanlkx1h7" path="res://Scenes/player.tscn" id="2_gmco2"]
+[ext_resource type="Script" uid="uid://dro8ykif6plfm" path="res://Scripts/enemy_patroller.gd" id="3_1i56a"]
+[ext_resource type="Texture2D" uid="uid://p210dbndiutx" path="res://Sprites/Characters/goose001.png" id="3_l2iua"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1i56a"]
+radius = 7.0
 
 [node name="Node2D" type="Node2D" unique_id=228350560]
 
@@ -10,3 +15,18 @@ tile_map_data = PackedByteArray("AAD6/wAAAAACAAEAAAD7/wAAAAACAAEAAAD8/wAAAAACAAE
 tile_set = ExtResource("1_js2xp")
 
 [node name="Player" parent="." unique_id=2135785123 instance=ExtResource("2_gmco2")]
+
+[node name="Birb" type="Area2D" parent="." unique_id=133143557]
+position = Vector2(231, 0)
+script = ExtResource("3_1i56a")
+move_direction = Vector2(-40, 0)
+
+[node name="Sprite" type="Sprite2D" parent="Birb" unique_id=278149420]
+texture = ExtResource("3_l2iua")
+offset = Vector2(0, -8)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Birb" unique_id=47801863]
+position = Vector2(0, -8)
+shape = SubResource("CircleShape2D_1i56a")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Birb" unique_id=678475439]
