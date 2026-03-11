@@ -51,6 +51,8 @@ func _manage_animation():
 func take_damage(amount : int):
 	health -= amount
 	
+	_damage_flash()
+	
 	# Emit signal for player_ui.gd
 	OnUpdateHealth.emit(health)
 	
@@ -63,3 +65,10 @@ func game_over():
 func increase_coins(amount : int):
 	Stats.score += amount
 	OnUpdateCoins.emit(Stats.score)
+
+func _damage_flash():
+	for i in 3:
+		sprite.modulate = Color.RED
+		await get_tree().create_timer(0.05).timeout
+		sprite.modulate = Color.WHITE
+		await get_tree().create_timer(0.05).timeout
