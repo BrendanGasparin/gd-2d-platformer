@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cn6cows8pqhur" path="res://Scripts/player.gd" id="1_cvnsp"]
 [ext_resource type="Texture2D" uid="uid://oydmunb7j23y" path="res://Sprites/Characters/player001_idle.png" id="2_cvnsp"]
+[ext_resource type="Script" uid="uid://b3crevjuxw12l" path="res://Scripts/camera_shake.gd" id="3_3smsa"]
 [ext_resource type="Texture2D" uid="uid://chet1g3jyulkh" path="res://Sprites/Characters/player100_running.png" id="3_6t5aa"]
 [ext_resource type="Script" uid="uid://lda7xn3ac3n4" path="res://Scripts/player_ui.gd" id="3_x3wgy"]
 [ext_resource type="Texture2D" uid="uid://cmmyv27tmes7q" path="res://Sprites/Objects/heart.png" id="4_vgqql"]
@@ -102,6 +103,7 @@ shape = SubResource("RectangleShape2D_cvnsp")
 [node name="Camera2D" type="Camera2D" parent="." unique_id=734353865]
 position = Vector2(0, -10)
 zoom = Vector2(5, 5)
+script = ExtResource("3_3smsa")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1060715555]
 script = ExtResource("3_x3wgy")
