@@ -13,6 +13,10 @@ signal OnUpdateCoins(coins : int)
 
 @onready var sprite : Sprite2D = $Sprite
 @onready var anim : AnimationPlayer = $AnimationPlayer
+@onready var audio : AudioStreamPlayer = $AudioStreamPlayer
+
+var coin_sfx : AudioStream = preload("res://Audio/coin.mp3")
+var damage_sfx : AudioStream = preload("res://Audio/damage.mp3")
 
 var move_input : float
 
@@ -38,6 +42,10 @@ func _physics_process(delta: float) -> void:
 
 func _process(_delta : float) -> void:
 	sprite.flip_h = velocity.x < 0
+	
+	if global_position.y > 200:
+		game_over()
+	
 	_manage_animation()
 	
 func _manage_animation():
@@ -53,6 +61,8 @@ func take_damage(amount : int):
 	
 	_damage_flash()
 	
+	play_sound(damage_sfx)
+	
 	# Emit signal for player_ui.gd
 	OnUpdateHealth.emit(health)
 	
@@ -65,6 +75,7 @@ func game_over():
 func increase_coins(amount : int):
 	Stats.score += amount
 	OnUpdateCoins.emit(Stats.score)
+	play_sound(coin_sfx)
 
 func _damage_flash():
 	for i in 3:
@@ -72,3 +83,7 @@ func _damage_flash():
 		await get_tree().create_timer(0.05).timeout
 		sprite.modulate = Color.WHITE
 		await get_tree().create_timer(0.05).timeout
+
+func play_sound(sound : AudioStream):
+	audio.stream = sound
+	audio.play()
