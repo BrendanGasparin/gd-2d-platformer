@@ -5,7 +5,7 @@ var intensity : float = 0.0
 func _ready():
 	get_parent().OnUpdateHealth.connect(_damage_shake)
 
-func _damage_shake(health: int):
+func _damage_shake(_health: int):
 	intensity = 10
 
 func _process(delta):
