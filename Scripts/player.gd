@@ -41,7 +41,11 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 func _process(_delta : float) -> void:
-	sprite.flip_h = velocity.x < 0
+	# sprite.flip_h = velocity.x < 0
+	if velocity.x < 0:
+		sprite.flip_h = 1
+	elif velocity.x > 0:
+		sprite.flip_h = 0
 	
 	if global_position.y > 40:
 		game_over()
@@ -70,7 +74,7 @@ func take_damage(amount : int):
 		call_deferred("game_over")
 
 func game_over():
-	get_tree().change_scene_to_file("res://Scenes/Levels/W1L1.tscn")
+	get_tree().change_scene_to_file("res://Scenes/game_over.tscn")
 
 func increase_coins(amount : int):
 	Stats.score += amount

@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://cugb0q4cigufk"]
+
+[ext_resource type="Script" uid="uid://c0da6e5njdanu" path="res://Scripts/menu.gd" id="1_8fo1c"]
+[ext_resource type="FontFile" uid="uid://dvfvoc5ibplow" path="res://Fonts/Tiny5-Regular.ttf" id="2_ek8ke"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_xhh6f"]
+font = ExtResource("2_ek8ke")
+font_size = 72
+outline_size = 16
+outline_color = Color(0, 0, 0, 1)
+
+[node name="Game Over" type="Control" unique_id=2032412559]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_8fo1c")
+
+[node name="Game Over Message" type="Label" parent="." unique_id=1739622702]
+layout_mode = 0
+offset_left = 414.0
+offset_top = 202.0
+offset_right = 792.0
+offset_bottom = 287.0
+text = "GAME OVER"
+label_settings = SubResource("LabelSettings_xhh6f")
+horizontal_alignment = 1
+
+[node name="Game Over Message2" type="Label" parent="." unique_id=1553571786]
+layout_mode = 0
+offset_left = 415.0
+offset_top = 284.0
+offset_right = 793.0
+offset_bottom = 449.0
+text = "You died,
+bro!"
+label_settings = SubResource("LabelSettings_xhh6f")
+horizontal_alignment = 1
