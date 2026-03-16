@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://citjgkr5u8b4q" path="res://Sprites/Tiles/Tileset001.png" id="1_ivmqh"]
 [ext_resource type="PackedScene" uid="uid://c2gvlanlkx1h7" path="res://Scenes/player.tscn" id="2_ax6nw"]
+[ext_resource type="PackedScene" uid="uid://dpn2sina6bdld" path="res://Scenes/coin.tscn" id="3_dvf45"]
 [ext_resource type="Script" uid="uid://cmgt1x5aaf2j4" path="res://Scripts/flag.gd" id="5_7abea"]
 [ext_resource type="Texture2D" uid="uid://co43evc4tkjbl" path="res://Sprites/Objects/flag.png" id="6_jf0fq"]
 
@@ -33,7 +34,7 @@ sources/1 = SubResource("TileSetAtlasSource_vbwyc")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bnf33"]
 size = Vector2(1.7231357, 22.55492)
 
-[node name="World 1 Level 1" type="Node2D" unique_id=228350560]
+[node name="World 1 Level 2" type="Node2D" unique_id=228350560]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=360509694]
 tile_map_data = PackedByteArray("AAD8/wAAAQAAAAAAAAD9/wAAAQAAAAAAAAD+/wAAAQAAAAAAAAD//wAAAQAAAAAAAAAAAAAAAQAAAAAAAAABAAAAAQAAAAAAAAACAAAAAQAAAAAAAAD8/wEAAQABAAAAAAD//wEAAQABAAAAAAAAAAEAAQABAAAAAAABAAEAAQABAAAAAAACAAEAAQABAAAAAAD9/wEAAQABAAAAAAD+/wEAAQABAAAAAAACAAMAAQABAAAAAAABAAMAAQABAAAAAAAAAAMAAQABAAAAAAD//wMAAQABAAAAAAD+/wMAAQABAAAAAAD9/wMAAQABAAAAAAD8/wMAAQABAAAAAAD8/wIAAQABAAAAAAD9/wIAAQABAAAAAAD+/wIAAQABAAAAAAD//wIAAQABAAAAAAAAAAIAAQABAAAAAAABAAIAAQABAAAAAAACAAIAAQABAAAAAAD8/wQAAQABAAAAAAD9/wQAAQABAAAAAAD+/wQAAQABAAAAAAD//wQAAQABAAAAAAAAAAQAAQABAAAAAAABAAQAAQABAAAAAAACAAQAAQABAAAAAAD8/wUAAQABAAAAAAD9/wUAAQABAAAAAAD+/wUAAQABAAAAAAD//wUAAQABAAAAAAAAAAUAAQABAAAAAAABAAUAAQABAAAAAAACAAUAAQABAAAAAAA=")
@@ -59,5 +60,8 @@ position = Vector2(-0.5000001, -8.084252)
 rotation = -3.1415925
 scale = Vector2(7.544386, -0.71685046)
 shape = SubResource("RectangleShape2D_bnf33")
+
+[node name="Coin" parent="." unique_id=1752163777 instance=ExtResource("3_dvf45")]
+position = Vector2(31, -13)
 
 [connection signal="body_entered" from="Flag" to="Flag" method="_on_body_entered"]
