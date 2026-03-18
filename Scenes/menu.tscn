@@ -5,9 +5,10 @@
 
 [sub_resource type="LabelSettings" id="LabelSettings_xhh6f"]
 font = ExtResource("1_1rerr")
-font_size = 72
+font_size = 84
 outline_size = 16
 outline_color = Color(0, 0, 0, 1)
+shadow_size = 32
 
 [node name="Menu" type="Control" unique_id=2032412559]
 layout_mode = 3
@@ -18,12 +19,23 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_xhh6f")
 
+[node name="Title2" type="Label" parent="." unique_id=1504269567]
+layout_mode = 0
+offset_left = 407.0
+offset_top = 170.0
+offset_right = 733.0
+offset_bottom = 363.0
+text = "Super
+Dude Bro"
+label_settings = SubResource("LabelSettings_xhh6f")
+horizontal_alignment = 1
+
 [node name="Title" type="Label" parent="." unique_id=1739622702]
 layout_mode = 0
-offset_left = 425.0
-offset_top = 175.0
-offset_right = 704.0
-offset_bottom = 340.0
+offset_left = 397.0
+offset_top = 162.0
+offset_right = 723.0
+offset_bottom = 355.0
 text = "Super
 Dude Bro"
 label_settings = SubResource("LabelSettings_xhh6f")
