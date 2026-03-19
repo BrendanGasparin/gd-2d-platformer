@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://dpn2sina6bdld" path="res://Scenes/coin.tscn" id="6_ogmyj"]
 [ext_resource type="Script" uid="uid://c1m0rm2n2p2kw" path="res://Scripts/enemy_marcher.gd" id="7_vbwyc"]
 [ext_resource type="Texture2D" uid="uid://beer2vu7q3l3l" path="res://Sprites/Characters/Shroom001.png" id="8_chgoe"]
+[ext_resource type="Texture2D" uid="uid://ow33ss0fy6r3" path="res://Sprites/Characters/Shroom002.png" id="9_chgoe"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vbwyc"]
 texture = ExtResource("1_ogmyj")
@@ -53,6 +54,31 @@ size = Vector2(1.7231357, 22.55492)
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vbwyc"]
 radius = 6.9989786
 height = 15.997665
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_chgoe"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_chgoe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_chgoe")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_chgoe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_chgoe")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
 
 [node name="World 1 Level 1" type="Node2D" unique_id=228350560]
 rotation = -0.017084697
@@ -136,15 +162,13 @@ position = Vector2(253.96292, 4.339302)
 script = ExtResource("7_vbwyc")
 move_direction = -1.0
 
-[node name="Sprite" type="Sprite2D" parent="Shroomperson" unique_id=898775173]
-texture = ExtResource("8_chgoe")
-offset = Vector2(0, -8)
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Shroomperson" unique_id=485879641]
 position = Vector2(0.13667093, -7.9988327)
 shape = SubResource("CapsuleShape2D_vbwyc")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Shroomperson" unique_id=1851857546]
-root_node = NodePath("../..")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Shroomperson" unique_id=1141872528]
+sprite_frames = SubResource("SpriteFrames_chgoe")
+animation = &"walk"
+offset = Vector2(0, -8)
 
 [connection signal="body_entered" from="Flag" to="Flag" method="_on_body_entered"]

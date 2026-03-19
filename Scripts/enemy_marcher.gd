@@ -4,10 +4,10 @@ extends CharacterBody2D
 @export var move_speed : float = 20
 @export var gravity : float = 200.0
 
-@onready var sprite : Sprite2D = $Sprite
+@onready var sprite : AnimatedSprite2D = $AnimatedSprite2D
 
 func _ready():
-	$AnimationPlayer.play("walk")
+	$AnimatedSprite2D.play("walk")
 
 func _physics_process(delta):
 	# Apply gravity
