@@ -20,8 +20,16 @@ func _physics_process(delta):
 	# Move and collision detection
 	move_and_slide()
 
+	# Check collisions
+	for i in range(get_slide_collision_count()):
+		var collision = get_slide_collision(i)
+		var body = collision.get_collider()
+
+		if body.is_in_group("Player"):
+			body.take_damage(1)
+
 	# When we meet a horizontal barrier, turn around
-	if is_on_wall():
+	if is_on_wall() and is_on_floor():
 		move_direction *= -1
 
 	if move_direction < 0:

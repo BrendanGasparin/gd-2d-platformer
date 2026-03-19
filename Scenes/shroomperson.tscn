@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://c8adylw5xbqbj"]
+
+[ext_resource type="Script" uid="uid://c1m0rm2n2p2kw" path="res://Scripts/enemy_marcher.gd" id="1_gwxud"]
+[ext_resource type="Texture2D" uid="uid://beer2vu7q3l3l" path="res://Sprites/Characters/Shroom001.png" id="2_373jl"]
+[ext_resource type="Texture2D" uid="uid://ow33ss0fy6r3" path="res://Sprites/Characters/Shroom002.png" id="3_jd75m"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vbwyc"]
+radius = 6.9989786
+height = 15.997665
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_chgoe"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_373jl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_jd75m")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_jd75m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_373jl")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[node name="Shroomperson" type="CharacterBody2D" unique_id=961302805]
+script = ExtResource("1_gwxud")
+move_direction = -1.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=984150157]
+position = Vector2(0.13667093, -7.9988327)
+shape = SubResource("CapsuleShape2D_vbwyc")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1966158288]
+sprite_frames = SubResource("SpriteFrames_chgoe")
+animation = &"walk"
+offset = Vector2(0, -8)

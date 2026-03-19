@@ -3,12 +3,10 @@
 [ext_resource type="Texture2D" uid="uid://citjgkr5u8b4q" path="res://Sprites/Tiles/Tileset001.png" id="1_ogmyj"]
 [ext_resource type="PackedScene" uid="uid://c2gvlanlkx1h7" path="res://Scenes/player.tscn" id="2_gmco2"]
 [ext_resource type="PackedScene" uid="uid://wf4m2po8r7uk" path="res://Scenes/pig.tscn" id="3_l8p44"]
+[ext_resource type="PackedScene" uid="uid://c8adylw5xbqbj" path="res://Scenes/shroomperson.tscn" id="4_bnf33"]
 [ext_resource type="Script" uid="uid://cmgt1x5aaf2j4" path="res://Scripts/flag.gd" id="4_ogmyj"]
 [ext_resource type="Texture2D" uid="uid://co43evc4tkjbl" path="res://Sprites/Objects/flag.png" id="5_ogmyj"]
 [ext_resource type="PackedScene" uid="uid://dpn2sina6bdld" path="res://Scenes/coin.tscn" id="6_ogmyj"]
-[ext_resource type="Script" uid="uid://c1m0rm2n2p2kw" path="res://Scripts/enemy_marcher.gd" id="7_vbwyc"]
-[ext_resource type="Texture2D" uid="uid://beer2vu7q3l3l" path="res://Sprites/Characters/Shroom001.png" id="8_chgoe"]
-[ext_resource type="Texture2D" uid="uid://ow33ss0fy6r3" path="res://Sprites/Characters/Shroom002.png" id="9_chgoe"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vbwyc"]
 texture = ExtResource("1_ogmyj")
@@ -50,35 +48,6 @@ sources/1 = SubResource("TileSetAtlasSource_vbwyc")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bnf33"]
 size = Vector2(1.7231357, 22.55492)
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vbwyc"]
-radius = 6.9989786
-height = 15.997665
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_chgoe"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("8_chgoe")
-}, {
-"duration": 1.0,
-"texture": ExtResource("9_chgoe")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("9_chgoe")
-}, {
-"duration": 1.0,
-"texture": ExtResource("8_chgoe")
-}],
-"loop": true,
-"name": &"walk",
-"speed": 5.0
-}]
 
 [node name="World 1 Level 1" type="Node2D" unique_id=228350560]
 rotation = -0.017084697
@@ -133,6 +102,22 @@ position = Vector2(277, -2)
 
 [node name="Enemies" type="Node" parent="." unique_id=310729261]
 
+[node name="Shroomperson" parent="Enemies" unique_id=961302805 instance=ExtResource("4_bnf33")]
+position = Vector2(253.99998, 0)
+rotation = -0.017084697
+
+[node name="Shroomperson2" parent="Enemies" unique_id=300720341 instance=ExtResource("4_bnf33")]
+position = Vector2(442, -96.00001)
+rotation = -0.017084697
+
+[node name="Shroomperson3" parent="Enemies" unique_id=920494886 instance=ExtResource("4_bnf33")]
+position = Vector2(586.00006, -33)
+rotation = -0.017084697
+
+[node name="Shroomperson4" parent="Enemies" unique_id=1573735591 instance=ExtResource("4_bnf33")]
+position = Vector2(620, -33)
+rotation = -0.017084697
+
 [node name="Pig3" parent="Enemies" unique_id=259393709 instance=ExtResource("3_l8p44")]
 position = Vector2(958, 0)
 
@@ -156,19 +141,5 @@ position = Vector2(-0.5000001, -8.084252)
 rotation = -3.1415925
 scale = Vector2(7.544386, -0.71685046)
 shape = SubResource("RectangleShape2D_bnf33")
-
-[node name="Shroomperson" type="CharacterBody2D" parent="." unique_id=1557701555]
-position = Vector2(253.96292, 4.339302)
-script = ExtResource("7_vbwyc")
-move_direction = -1.0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Shroomperson" unique_id=485879641]
-position = Vector2(0.13667093, -7.9988327)
-shape = SubResource("CapsuleShape2D_vbwyc")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Shroomperson" unique_id=1141872528]
-sprite_frames = SubResource("SpriteFrames_chgoe")
-animation = &"walk"
-offset = Vector2(0, -8)
 
 [connection signal="body_entered" from="Flag" to="Flag" method="_on_body_entered"]
