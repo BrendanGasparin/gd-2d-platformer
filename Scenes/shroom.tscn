@@ -1,9 +1,9 @@
-[gd_scene format=3 uid="uid://wf4m2po8r7uk"]
+[gd_scene format=3 uid="uid://bufte34gvpphl"]
 
-[ext_resource type="Script" uid="uid://dro8ykif6plfm" path="res://Scripts/enemy_patroller.gd" id="1_v2qpk"]
-[ext_resource type="Texture2D" uid="uid://p210dbndiutx" path="res://Sprites/Characters/goose001.png" id="3_4lw3h"]
-[ext_resource type="Texture2D" uid="uid://b55r5cxfup3ek" path="res://Sprites/Characters/pig002.png" id="3_dqrhe"]
-[ext_resource type="Texture2D" uid="uid://b17j7wepne12n" path="res://Sprites/Characters/pig001.png" id="4_4lw3h"]
+[ext_resource type="Script" uid="uid://dro8ykif6plfm" path="res://Scripts/enemy_patroller.gd" id="1_b2kvh"]
+[ext_resource type="Texture2D" uid="uid://p210dbndiutx" path="res://Sprites/Characters/goose001.png" id="2_t5y8l"]
+[ext_resource type="Texture2D" uid="uid://c8i4yn60wvlr5" path="res://Sprites/Characters/shroom002.png" id="3_b2kvh"]
+[ext_resource type="Texture2D" uid="uid://dnd2id3uinkk3" path="res://Sprites/Characters/shroom001.png" id="4_t5y8l"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1i56a"]
 radius = 7.0
@@ -20,7 +20,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("3_4lw3h")]
+"values": [ExtResource("2_t5y8l")]
 }
 
 [sub_resource type="Animation" id="Animation_bnf33"]
@@ -37,7 +37,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [ExtResource("3_dqrhe"), ExtResource("4_4lw3h")]
+"values": [ExtResource("3_b2kvh"), ExtResource("4_t5y8l")]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_vbwyc"]
@@ -46,12 +46,12 @@ _data = {
 &"walk": SubResource("Animation_bnf33")
 }
 
-[node name="Pig" type="Area2D" unique_id=1012019069]
-script = ExtResource("1_v2qpk")
+[node name="Shroom" type="Area2D" unique_id=1012019069]
+script = ExtResource("1_b2kvh")
 move_direction = Vector2(-40, 0)
 
 [node name="Sprite" type="Sprite2D" parent="." unique_id=1514315138]
-texture = ExtResource("3_4lw3h")
+texture = ExtResource("2_t5y8l")
 offset = Vector2(0, -8)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=50813113]

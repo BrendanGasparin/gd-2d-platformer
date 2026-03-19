@@ -13,7 +13,7 @@ func _ready():
 func _physics_process(delta):
 	# Patrol
 	global_position = global_position.move_toward(target_pos, move_speed * delta)
-	if global_position == target_pos:
+	if global_position.distance_to(target_pos) < 1.0:
 		if target_pos == start_pos:
 			target_pos = start_pos + move_direction
 		else:
