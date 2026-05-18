@@ -19,6 +19,11 @@ config/icon="res://icon.svg"
 
 Stats="*uid://myyexr101jf3"
 
+[display]
+
+window/size/mode=3
+window/stretch/mode="canvas_items"
+
 [input]
 
 move_left={
