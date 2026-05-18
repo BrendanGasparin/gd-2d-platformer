@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://citjgkr5u8b4q" path="res://Sprites/Tiles/Tileset001.png" id="1_ogmyj"]
 [ext_resource type="PackedScene" uid="uid://c2gvlanlkx1h7" path="res://Scenes/player.tscn" id="2_gmco2"]
 [ext_resource type="PackedScene" uid="uid://wf4m2po8r7uk" path="res://Scenes/pig.tscn" id="3_l8p44"]
+[ext_resource type="PackedScene" uid="uid://c6isjydjvisq" path="res://Scenes/pause_menu.tscn" id="3_vbwyc"]
 [ext_resource type="PackedScene" uid="uid://c8adylw5xbqbj" path="res://Scenes/shroomperson.tscn" id="4_bnf33"]
 [ext_resource type="Script" uid="uid://cmgt1x5aaf2j4" path="res://Scripts/flag.gd" id="4_ogmyj"]
 [ext_resource type="Texture2D" uid="uid://co43evc4tkjbl" path="res://Sprites/Objects/flag.png" id="5_ogmyj"]
@@ -58,6 +59,8 @@ tile_map_data = PackedByteArray("AAD6/wAAAQAAAAAAAAD7/wAAAQAAAAAAAAD8/wAAAQAAAAA
 tile_set = SubResource("TileSet_chgoe")
 
 [node name="Player" parent="." unique_id=2135785123 instance=ExtResource("2_gmco2")]
+
+[node name="PauseMenu" parent="Player" unique_id=2078640491 instance=ExtResource("3_vbwyc")]
 
 [node name="Coins" type="Node" parent="." unique_id=428205761]
 
